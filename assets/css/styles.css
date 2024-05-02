@@ -1,0 +1,7 @@
+.header-spans {
+  display: flex;
+  flex-direction: column;
+}
+.roca {
+  font-size: 33px;
+}
