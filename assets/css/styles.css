@@ -9,6 +9,14 @@ body {
   font-family: extrabold;
   src: url(../fonts/Poppins-ExtraBold.ttf);
 }
+@font-face {
+  font-family: glaciaregular;
+  src: url(../fonts/GlacialIndifference-Regular.ttf);
+}
+@font-face {
+  font-family: glaciabold;
+  src: url(../fonts/GlacialIndifference-Bold.ttf);
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -42,4 +50,51 @@ header {
   text-align: center;
   top: 8%;
   right: 1%;
+}
+
+/* slider */
+
+.icon {
+  max-width: 20px;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+}
+.slider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+.name :first-child {
+  font-size: 49.7px;
+  font-family: glaciaregular;
+  letter-spacing: 0.75px;
+  color: #212121;
+}
+.name :nth-child(2) {
+  font-size: 71px;
+  font-family: glaciabold;
+  letter-spacing: 1.06px;
+  color: #212121;
+}
+.name :nth-child(3) {
+  font-size: 23.29px;
+  font-family: glaciaregular;
+  color: #212121;
+}
+
+.slide div img {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transition: all 0.7s;
+}
+.slide.active div img {
+  width: auto;
+  height: auto;
+  opacity: 1;
+  padding: 20px;
 }
