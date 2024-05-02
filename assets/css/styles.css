@@ -1,7 +1,45 @@
+body {
+  max-width: 1816px;
+  width: 94%;
+  margin: auto;
+  background-color: #dddddd;
+}
+
+@font-face {
+  font-family: extrabold;
+  src: url(../fonts/Poppins-ExtraBold.ttf);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header-spans {
   display: flex;
   flex-direction: column;
 }
 .roca {
   font-size: 33px;
+  font-family: extrabold;
+}
+.header-dot {
+  color: #0081ff;
+}
+.Template {
+  color: #b3b3b3;
+  font-size: 13px;
+}
+.about-me :nth-child(1) {
+  font-size: 158.3px;
+  font-family: extrabold;
+  position: relative;
+}
+.about-me :nth-child(2) {
+  font-size: 43.17px;
+  color: #373737;
+  font-family: extrabold;
+  position: absolute;
+  text-align: center;
+  top: 8%;
+  right: 1%;
 }
