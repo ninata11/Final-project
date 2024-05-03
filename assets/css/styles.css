@@ -93,7 +93,7 @@ header {
   transition: all 0.7s;
 }
 .slide.active div img {
-  width: auto;
+  width: 400px;
   height: auto;
   opacity: 1;
   padding: 20px;
