@@ -17,6 +17,18 @@ body {
   font-family: glaciabold;
   src: url(../fonts/GlacialIndifference-Bold.ttf);
 }
+@font-face {
+  font-family: montserratbold;
+  src: url(../fonts/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: muli;
+  src: url(../fonts/Muli-Light.ttf);
+}
+@font-face {
+  font-family: muliregular;
+  src: url(../fonts/Muli-Regular.ttf);
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -67,6 +79,7 @@ header {
   align-items: center;
   gap: 20px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 .name :first-child {
   font-size: 49.7px;
@@ -93,8 +106,71 @@ header {
   transition: all 0.7s;
 }
 .slide.active div img {
-  width: 400px;
+  width: auto;
   height: auto;
   opacity: 1;
   padding: 20px;
+}
+.page-end {
+  float: right;
+}
+.page-end :first-child {
+  font-size: 24px;
+  font-family: montserratbold;
+  color: #e93656;
+}
+.page-end :nth-child(2) {
+  font-size: 24px;
+  font-family: montserratbold;
+}
+.page-end :nth-child(3) {
+  width: 340px;
+  min-height: 6px;
+  background-color: #e93656;
+  margin-top: 24px;
+}
+.container {
+  margin-top: 200px;
+
+  padding: 135px;
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: end;
+}
+.information h2 {
+  font-size: 40px;
+  font-family: glaciabold;
+  color: #222222;
+}
+.information span {
+  font-size: 14px;
+  color: #daae19;
+  font-family: muli;
+}
+.information p {
+  font-size: 15px;
+  color: #555555;
+  max-width: 300px;
+  font-family: muliregular;
+  text-align: right;
+}
+.information div {
+  text-align: center;
+  padding: 10px;
+  max-width: 152px;
+  background-color: #e93656;
+  color: white;
+  font-family: glaciabold;
+}
+.container img {
+  max-width: 430px;
+  max-height: 400px;
 }
