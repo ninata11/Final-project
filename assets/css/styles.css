@@ -174,3 +174,30 @@ header {
   max-width: 430px;
   max-height: 400px;
 }
+
+.progress {
+  width: 300px;
+  height: 9px;
+
+  background-color: #f0f0f0;
+}
+.progress-bar {
+  width: 0%;
+  opacity: 0;
+  height: 100%;
+  background-color: #e93656;
+  transition: all 2s;
+}
+.bars span {
+  font-size: 20px;
+  font-family: glaciabold;
+}
+.bars :nth-child(2) {
+  color: #e93656;
+}
+.bars {
+  margin: 23px;
+}
+.container-2 {
+  margin-top: 12px;
+}
