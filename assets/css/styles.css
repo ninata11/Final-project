@@ -1,7 +1,4 @@
 body {
-  max-width: 1816px;
-  width: 94%;
-  margin: auto;
   background-color: #dddddd;
 }
 
@@ -33,6 +30,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1816px;
+  width: 94%;
+  margin: auto;
 }
 .header-spans {
   display: flex;
@@ -67,7 +67,8 @@ header {
 /* slider */
 
 .icon {
-  max-width: 20px;
+  max-width: 30px;
+  margin: 5px;
 }
 .name {
   display: flex;
@@ -80,6 +81,9 @@ header {
   gap: 20px;
   justify-content: center;
   margin-bottom: 100px;
+  max-width: 1816px;
+  width: 94%;
+  margin: auto;
 }
 .name :first-child {
   font-size: 49.7px;
@@ -200,4 +204,70 @@ header {
 }
 .container-2 {
   margin-top: 12px;
+}
+.squares-parent {
+  display: flex;
+  gap: 10px;
+  margin-left: 25px;
+  margin-top: 70px;
+}
+
+.square div {
+  color: black;
+  font-family: glaciabold;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+.square:hover {
+  background-color: #15263e;
+}
+.square div:hover {
+  color: #dddddd;
+}
+
+/* blue section */
+.blue-section {
+  background-color: #131a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 41px;
+}
+.dashed-border {
+  max-width: 90px;
+  border: 1px dashed white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact img {
+  padding: 30px;
+}
+.contact {
+  display: flex;
+  gap: 29px;
+  margin-top: 54px;
+  margin-bottom: 54px;
+}
+.addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.addresses h3 {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: glaciabold;
+  margin-bottom: 5px;
+}
+.addresses a {
+  color: #dfdfdf;
+  letter-spacing: 0.42px;
+  font-size: 14px;
+  font-family: muli;
+}
+.dashed-border:hover {
+  background-color: #e93656;
+  border: none;
 }
