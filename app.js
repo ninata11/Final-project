@@ -33,7 +33,7 @@ const progress=document.querySelector(".progress");
 function showProgress(){
     progressBars.forEach(progressBar=>{
         const value = progressBar.dataset.progress;
-        console.log(value);
+        
         progressBar.style.opacity=1;
         progressBar.style.width= `${value}%`;
     })
@@ -58,3 +58,53 @@ window.addEventListener('scroll',()=>{
 })
 
 
+// second slide
+
+const sliderDiv = document.querySelectorAll(".emploee");
+const button = document.querySelectorAll(".button");
+
+let currentSlideIndex=0;
+function startSlide(){
+    sliderDiv.forEach((emploee, index)=>{
+        if(index===currentSlideIndex){
+            emploee.classList.add("start");
+        }else{
+            emploee.classList.remove("start");
+        }
+    });
+}
+
+startSlide();
+
+
+
+function goToNextSlide() {
+	if (currentSlideIndex === slides.length - 1) {
+		currentSlideIndex = 0;
+	} else {
+		currentSlideIndex += 1;
+	}
+	startSlide();
+  
+    
+}
+
+button.forEach((but, index) => {
+    	but.addEventListener("click", (e) => {
+     		currentSlideIndex = index;
+           
+            
+     		startSlide();
+             
+     	});
+     });
+     
+
+
+// function indicators(){
+//     for(i=0; i<button.length; i++){
+//         button[i].className=button[i].className.replace('.but','');
+//     }
+//     button[index-1].className+='.but';
+//     indicators();
+// }
