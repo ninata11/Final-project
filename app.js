@@ -108,3 +108,91 @@ button.forEach((but, index) => {
 //     button[index-1].className+='.but';
 //     indicators();
 // }
+
+const form = document.querySelector("form");
+const nameInput = document.querySelector("#username");
+const emailInput = document.querySelector("#email");
+const website = document.querySelector("#web");
+const nameError = document.querySelector("#username-error");
+const emailError = document.querySelector("#email-error");
+const webError = document.querySelector("#web-error");
+
+function checkUserName(){
+    if(nameInput.value.trim() ===''){
+        nameError.textContent="Username is required.";
+        nameInput.classList.add("error");
+        return false
+    }else{
+        nameError.textContent="";
+        nameInput.classList.remove("error");
+        nameInput.classList.add("correct");
+    }
+};
+
+function checkWeb(){
+    if(website.value.trim() ===''){
+        webError.textContent="Website is required.";
+        website.classList.add("error");
+        return false
+    }else{
+        webError.textContent="";
+        website.classList.remove("error");
+        website.classList.add("correct");
+    }
+};
+
+
+function checkEmail(){
+    if(!emailInput.validity.valid){
+        emailError.textContent="Email is required."
+        
+        if (emailInput.validity.typeMismatch){
+            emailError.textContent="Please enter a valid email address.";
+        }emailInput.classList.add("error");
+        return false
+    }else{
+        emailError.textContent="";
+        emailInput.classList.remove("error");
+        nameInput.classList.add("correct");
+        return true
+    }
+};
+
+
+nameInput.addEventListener("input",checkUserName);
+emailInput.addEventListener("input",checkEmail);
+website.addEventListener("input",checkWeb);
+
+
+
+addEventListener("submit",(e)=>
+{
+    e.preventDefault()
+    const isNameValid=checkUserName();
+    const isMailValid=checkEmail();
+    const isWebValid=checkWeb();
+   
+
+    if(isNameValid&&isMailValid&&isWebValid)
+    {
+        showSelectedModal("#sign-up-modal");
+        form.reset();
+        inputs.forEach((el)=>classList.remove("correct"));
+    }else{
+        showSelectModal("#sign-up-error-modal");
+    }
+});
+
+function showSelectedModal(selector) {
+	const modal = document.querySelector(selector);
+	const closeBtn = modal.querySelector(".modal-close");
+	if (modal) {
+		modal.classList.add("open");
+	}
+
+	if (closeBtn) {
+		closeBtn.addEventListener("click", () => {
+			modal.classList.remove("open");
+		});
+	}
+}

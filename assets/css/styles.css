@@ -37,6 +37,10 @@ body {
   font-family: poppins;
   src: url(../fonts/Poppins-SemiBold.ttf);
 }
+@font-face {
+  font-family: popbold;
+  src: url(../fonts/Poppins-ExtraBold.ttf);
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -744,15 +748,19 @@ header {
   flex-wrap: wrap;
 }
 .input-field input {
-  max-width: 290px;
+  color: black;
+  min-width: 290px;
   width: 100%;
   padding: 18px 30px;
+  font-family: poppins;
+  font-size: 10px;
 }
 .textarea {
-  min-width: 720px;
-
+  min-width: 890px;
+  font-family: poppins;
   max-height: 110px;
   padding: 30px;
+  font-size: 10px;
 }
 .form {
   display: flex;
@@ -767,12 +775,90 @@ header {
   padding: 16px 50px;
   background-color: transparent;
   margin-bottom: 100px;
+  cursor: pointer;
+  font-family: glaciabold;
+}
+.input-field button:hover {
+  background-color: #e93656;
+  color: #ffffff;
+}
+.error-message {
+  display: block;
+  height: 30px;
+  margin-top: 10px;
+  color: red;
+  font-size: 15px;
+  width: 70%;
+  margin-left: 30%;
+  text-align: right;
+}
+
+input.error {
+  border: 2px solid red;
+}
+input.correct {
+  border: 2px solid green;
 }
 
 /* footer-section */
 .footer-section {
   background-color: #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 100px;
 }
 .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.logos a img {
   max-width: 30px;
+}
+.last-roca {
+  display: flex;
+  align-items: end;
+}
+.last-roca :first-child {
+  letter-spacing: 1.66px;
+  color: #ffffff;
+  font-size: 55.42px;
+  font-family: popbold;
+}
+.last-roca :nth-child(2) {
+  font-family: popbold;
+  font-size: 45.72px;
+  color: #e93656;
+}
+.footer-section p {
+  font-size: 17px;
+  font-family: roboto;
+  letter-spacing: 0.09px;
+  color: #a5a5a5;
+  max-width: 613px;
+  text-align: center;
+}
+
+/* footer */
+footer {
+  background-color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 27px;
+  gap: 5px;
+}
+
+footer :first-child,
+:last-child {
+  color: #a0a8b7;
+  font-size: 15px;
+  font-family: muli;
+}
+footer :nth-child(2) {
+  color: #ffffff;
 }
