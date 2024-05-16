@@ -116,6 +116,7 @@ const website = document.querySelector("#web");
 const nameError = document.querySelector("#username-error");
 const emailError = document.querySelector("#email-error");
 const webError = document.querySelector("#web-error");
+const inputs = document.querySelectorAll("input");
 
 function checkUserName(){
     if(nameInput.value.trim() ===''){
@@ -164,35 +165,52 @@ emailInput.addEventListener("input",checkEmail);
 website.addEventListener("input",checkWeb);
 
 
+const openModal = document.querySelector(".open-sign-in");
+const modal = document.querySelector("#sign-up-modal");
+const closeModal = document.querySelector(".x-button");
 
-addEventListener("submit",(e)=>
-{
-    e.preventDefault()
+try {
+	openModal.addEventListener("click", () => {
+		dialog.show();
+	});
+
+	closeDialog.addEventListener("click", (e) => {
+		dialog.close();
+	});
+} catch (error) {
+	console.error(error);
+} finally {
+	console.log("finally block");
+}
+
+
+
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
     const isNameValid=checkUserName();
-    const isMailValid=checkEmail();
-    const isWebValid=checkWeb();
-   
+     const isMailValid=checkEmail();
+     const isWebValid=checkWeb();
 
-    if(isNameValid&&isMailValid&&isWebValid)
-    {
-        showSelectedModal("#sign-up-modal");
+     if(
+        isNameValid&&
+        isMailValid&&
+        isWebValid
+     ){
+        showSelectModal("#sign-up-modal");
         form.reset();
-        inputs.forEach((el)=>classList.remove("correct"));
-    }else{
-        showSelectModal("#sign-up-error-modal");
-    }
+        inputs.forEach((el)=>el.classList.remove("correct"));
+     }else{showSelectedModal("#sign-up-error-modal");}
 });
 
-function showSelectedModal(selector) {
-	const modal = document.querySelector(selector);
-	const closeBtn = modal.querySelector(".modal-close");
-	if (modal) {
-		modal.classList.add("open");
-	}
-
-	if (closeBtn) {
-		closeBtn.addEventListener("click", () => {
-			modal.classList.remove("open");
-		});
-	}
-}
+function showSelectedModal(selector){
+    const modal=document.querySelector(selector);
+    const closeBtn = modal.querySelector(".x-button");
+    if(modal){
+        modal.classList.add("open");
+    }
+    if(closeBtn){
+        closeBtn.addEventListener("click",()=>{
+            modal.classList.remove("open");
+        })
+    }
+};
