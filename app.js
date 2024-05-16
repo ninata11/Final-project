@@ -108,11 +108,12 @@ button.forEach((but, index) => {
 //     button[index-1].className+='.but';
 //     indicators();
 // }
-
+const createUserUrl ="https://borjomi.loremipsum.ge/api/send-message";
 const form = document.querySelector("form");
 const nameInput = document.querySelector("#username");
 const emailInput = document.querySelector("#email");
 const website = document.querySelector("#web");
+const message=document.querySelector(".textarea");
 const nameError = document.querySelector("#username-error");
 const emailError = document.querySelector("#email-error");
 const webError = document.querySelector("#web-error");
@@ -165,43 +166,56 @@ emailInput.addEventListener("input",checkEmail);
 website.addEventListener("input",checkWeb);
 
 
-const openModal = document.querySelector(".open-sign-in");
+const openModal = document.querySelector(".send-message ");
 const modal = document.querySelector("#sign-up-modal");
 const closeModal = document.querySelector(".x-button");
 
-try {
-	openModal.addEventListener("click", () => {
-		dialog.show();
-	});
 
-	closeDialog.addEventListener("click", (e) => {
-		dialog.close();
-	});
-} catch (error) {
-	console.error(error);
-} finally {
-	console.log("finally block");
+
+function sendMessage(user){
+    console.log(user);
+    fetch("https://borjomi.loremipsum.ge/api/send-message",{
+        method:"POST",
+        headers:{
+            "content-Type":"application/json",
+        },
+        body:JSON.stringify(user),
+    })
+   .then((response)=>response.json())
+   .then((data)=>{
+    console.log(data);
+    
+   });
 }
-
-
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
     const isNameValid=checkUserName();
      const isMailValid=checkEmail();
      const isWebValid=checkWeb();
+const user = {
+        name: nameInput.value,
+        email: emailInput.value,
+        website: website.value,
+        message: message.value,
+    };
+    sendMessage(user);
+     
 
      if(
         isNameValid&&
         isMailValid&&
         isWebValid
-     ){
-        showSelectModal("#sign-up-modal");
+     )
+     
+     {
+        showSelectedModal("#sign-up-modal");
         form.reset();
         inputs.forEach((el)=>el.classList.remove("correct"));
-     }else{showSelectedModal("#sign-up-error-modal");}
+     }else{showSelectedModal("#sign-up-modal");}
 });
 
+    // console.log(user);
 function showSelectedModal(selector){
     const modal=document.querySelector(selector);
     const closeBtn = modal.querySelector(".x-button");
@@ -213,4 +227,9 @@ function showSelectedModal(selector){
             modal.classList.remove("open");
         })
     }
+    
 };
+
+
+
+
