@@ -13,7 +13,7 @@
       <section class="header-spans">
         <div class="roca">
           <span>Roca</span>
-          <span class="header-dot">.</span>
+          <span class="dot">.</span>
         </div>
         <span class="Template">Resume Template</span>
       </section>
@@ -359,39 +359,39 @@
           <h3>Latest Projects</h3>
           <div class="l-projects">
             <div class="list">
-              <ul>
-                <li>
+              <ul class="btn-container" id="myBtnContainer">
+                <li class="btn active" onclick="filterObjects('all')">
                   All
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('work')">
                   Work ideas
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('mockup')">
                   Mockup
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('psd')">
                   PSD Desigh
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('log')">
                   Logo
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('pres')">
                   Presentation
                   <div class="line"></div>
                 </li>
-                <li>
+                <li class="btn" onclick="filterObjects('icons')">
                   Icons
                   <div class="line"></div>
                 </li>
               </ul>
             </div>
             <div class="js-cards">
-              <div class="project-card">
+              <div class="filterDiv work">
                 <img class="cube" src="assets/img/work.jpg" alt="ideas" />
 
                 <div class="none">
@@ -401,7 +401,7 @@
                   <h4>Work Ideas</h4>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="filterDiv mockup">
                 <img class="cube" src="assets/img/mockup.avif" alt="mockup" />
                 <div class="none">
                   <img src="assets/img/heart.svg" alt="heart" />
@@ -410,7 +410,7 @@
                   <h4>Mockup</h4>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="filterDiv psd">
                 <img class="cube" src="assets/img/PSD.webp" alt="psd" />
                 <div class="none">
                   <img src="assets/img/heart.svg" alt="heart" />
@@ -419,7 +419,7 @@
                   <h4>PSD Design</h4>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="filterDiv log">
                 <img class="cube" src="assets/img/cube.jpg" alt="cube" />
                 <div class="none">
                   <img src="assets/img/heart.svg" alt="heart" />
@@ -428,7 +428,7 @@
                   <h4>Logo</h4>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="filterDiv pres">
                 <img
                   class="cube"
                   src="assets/img/presentation.png"
@@ -441,7 +441,7 @@
                   <h4>Presentation</h4>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="filterDiv icons">
                 <img class="cube" src="assets/img/ball.jpg" alt="icons" />
                 <div class="none">
                   <img src="assets/img/heart.svg" alt="heart" />

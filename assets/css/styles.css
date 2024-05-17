@@ -56,8 +56,9 @@ header {
 .roca {
   font-size: 33px;
   font-family: extrabold;
+  color: #1a1a1a;
 }
-.header-dot {
+.dot {
   color: #0081ff;
 }
 .Template {
@@ -506,7 +507,7 @@ header {
   gap: 10px;
   padding: 50px;
 }
-.list ul li {
+.btn {
   display: flex;
 
   align-items: center;
@@ -516,7 +517,7 @@ header {
   color: #ffffff;
   font-family: glaciabold;
 }
-.list ul li:hover {
+.btn:hover {
   color: #e93656;
   z-index: 1;
 }
@@ -527,17 +528,22 @@ header {
   padding-left: 20px;
 }
 
-.project-card {
+.filterDiv {
   background-color: grey;
   border: 1px solid white;
   max-width: 300px;
   border: none;
+  display: none;
 }
+
 .l-projects {
   display: flex;
 }
+.show {
+  display: block;
+}
 
-.project-card img {
+.filterDiv img {
   max-width: 100%;
 
   object-fit: cover;
@@ -853,8 +859,13 @@ footer {
   gap: 5px;
 }
 
-footer :first-child,
-:last-child {
+footer:first-child {
+  color: #a0a8b7;
+  font-size: 15px;
+  font-family: muli;
+}
+
+footer:last-child {
   color: #a0a8b7;
   font-size: 15px;
   font-family: muli;
