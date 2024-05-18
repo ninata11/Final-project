@@ -60,6 +60,11 @@
   .article {
     margin: none;
   }
+  .client-info {
+    margin-left: -50px;
+    margin-top: -100px;
+  }
+
   .form {
     align-items: center;
   }
