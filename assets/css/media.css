@@ -64,7 +64,9 @@
     margin-left: -50px;
     margin-top: -100px;
   }
-
+  .rosa-team {
+    display: none;
+  }
   .form {
     align-items: center;
   }
