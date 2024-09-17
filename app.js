@@ -102,6 +102,7 @@ const emailError = document.querySelector("#email-error");
 const webError = document.querySelector("#web-error");
 const inputs = document.querySelectorAll("input");
 
+
 function checkUserName() {
   if (nameInput.value.trim() === "") {
     nameError.textContent = "Username is required.";
@@ -111,8 +112,10 @@ function checkUserName() {
     nameError.textContent = "";
     nameInput.classList.remove("error");
     nameInput.classList.add("correct");
+    return true;
   }
 }
+
 
 function checkWeb() {
   if (website.value.trim() === "") {
@@ -123,25 +126,28 @@ function checkWeb() {
     webError.textContent = "";
     website.classList.remove("error");
     website.classList.add("correct");
+    return true;
   }
 }
 
+
 function checkEmail() {
   if (!emailInput.validity.valid) {
-    emailError.textContent = "Email is required.";
-
     if (emailInput.validity.typeMismatch) {
       emailError.textContent = "Please enter a valid email address.";
+    } else {
+      emailError.textContent = "Email is required.";
     }
     emailInput.classList.add("error");
     return false;
   } else {
     emailError.textContent = "";
     emailInput.classList.remove("error");
-    nameInput.classList.add("correct");
+    emailInput.classList.add("correct");
     return true;
   }
 }
+
 
 inputs.forEach((input) => {
   input.addEventListener("input", () => {
@@ -159,24 +165,36 @@ inputs.forEach((input) => {
   });
 });
 
-const openModal = document.querySelector(".send-message ");
-const modal = document.querySelector("#sign-up-modal");
-const closeModal = document.querySelector(".x-button");
 
 function sendMessage(user) {
-  console.log(user);
-  fetch("https://borjomi.loremipsum.ge/api/send-message", {
+  console.log("Sending message:", user);
+  fetch(createUserUrl, {
     method: "POST",
     headers: {
-      "content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then((data) => {
-      console.log(data);
+      console.log("API Response:", data);
+      if (data.success) { 
+        showSelectedModal("#sign-up-modal"); 
+      } else {
+        showSelectedModal("#sign-up-error-modal"); 
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      showSelectedModal("#sign-up-error-modal"); 
     });
 }
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -189,19 +207,18 @@ form.addEventListener("submit", (e) => {
     website: website.value,
     message: message.value,
   };
-  sendMessage(user);
 
   if (isNameValid && isMailValid && isWebValid) {
-    showSelectedModal("#sign-up-modal");
+    sendMessage(user);
     form.reset();
     inputs.forEach((el) => el.classList.remove("correct"));
-  } else {
-    showSelectedModal("#sign-up-modal");
   }
 });
 
 
 function showSelectedModal(selector) {
+  document.querySelectorAll(".modal").forEach(modal => modal.classList.remove("open"));
+  
   const modal = document.querySelector(selector);
   const closeBtn = modal.querySelector(".x-button");
   if (modal) {
@@ -213,6 +230,7 @@ function showSelectedModal(selector) {
     });
   }
 }
+
 
 filterObjects("all");
 function filterObjects(category) {
