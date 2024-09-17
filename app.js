@@ -72,7 +72,7 @@ function startSlide() {
 
 startSlide();
 
-function goToNextSlide() {
+function goToNextEmployeeSlide() {
   if (currentSlideIndex === slides.length - 1) {
     currentSlideIndex = 0;
   } else {
@@ -80,6 +80,7 @@ function goToNextSlide() {
   }
   startSlide();
 }
+sliderIntervalId = setInterval(goToNextEmployeeSlide, 5000);
 
 button.forEach((but, index) => {
   but.addEventListener("click", (e) => {
@@ -89,13 +90,7 @@ button.forEach((but, index) => {
   });
 });
 
-// function indicators(){
-//     for(i=0; i<button.length; i++){
-//         button[i].className=button[i].className.replace('.but','');
-//     }
-//     button[index-1].className+='.but';
-//     indicators();
-// }
+
 const createUserUrl = "https://borjomi.loremipsum.ge/api/send-message";
 const form = document.querySelector("form");
 const nameInput = document.querySelector("#username");
@@ -148,9 +143,21 @@ function checkEmail() {
   }
 }
 
-nameInput.addEventListener("input", checkUserName);
-emailInput.addEventListener("input", checkEmail);
-website.addEventListener("input", checkWeb);
+inputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    switch (input.id) {
+      case "username":
+        checkUserName();
+        break;
+      case "email":
+        checkEmail();
+        break;
+      case "web":
+        checkWeb();
+        break;
+    }
+  });
+});
 
 const openModal = document.querySelector(".send-message ");
 const modal = document.querySelector("#sign-up-modal");
@@ -193,7 +200,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-// console.log(user);
+
 function showSelectedModal(selector) {
   const modal = document.querySelector(selector);
   const closeBtn = modal.querySelector(".x-button");
@@ -208,37 +215,37 @@ function showSelectedModal(selector) {
 }
 
 filterObjects("all");
-function filterObjects(c) {
-  let x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+function filterObjects(category) {
+  const filterDivs = document.querySelectorAll('.filterDiv');
+  
+  
+  if (category === 'all') {
+    filterDivs.forEach((div) => {
+      div.style.display = 'block';
+    });
+  } else {
+    
+    filterDivs.forEach((div) => {
+      if (div.classList.contains(category)) {
+        div.style.display = 'block'; 
+      } else {
+        div.style.display = 'none';
+      }
+    });
   }
-}
-
-function w3AddClass(element, name) {
-  let i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-
-function w3RemoveClass(element, name) {
-  let i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
-    }
-  }
-  element.className = arr1.join(" ");
 }
 
 
 const btnContainer = document.getElementById("myBtnContainer");
 const btns = btnContainer.getElementsByClassName("btn");
+
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    const current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+

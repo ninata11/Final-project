@@ -1,3 +1,8 @@
+/* Prevent side-scroll */
+body {
+  overflow-x: hidden;
+}
+
 @media (max-width: 1024px) {
   body {
     max-width: 375px;
@@ -8,14 +13,15 @@
   .roca {
     font-size: 30px;
   }
+
   .about-me :nth-child(1) {
     font-size: 95px;
-    font-family: extrabold;
+    font-family: "Extrabold", sans-serif; /* Ensure the font is available */
     position: relative;
   }
+
   .about-me :nth-child(2) {
     font-size: 25px;
-
     top: 4%;
   }
 
@@ -27,55 +33,75 @@
   .new-border {
     min-width: 100px;
   }
+
   .js-squares-parent {
     display: none;
   }
+
   .latest-projects {
+    display: flex;
     flex-wrap: wrap;
     padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
   }
+
   .l-projects {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    box-sizing: border-box; /* Ensure gap is included in width calculation */
   }
+
   .line {
     display: none;
   }
+
   .none {
+    display: flex; /* Ensure items are displayed */
     flex-wrap: wrap;
     max-width: 290px;
     max-height: 290px;
     width: 100%;
-    height: 100%;
+    height: auto; /* Maintain aspect ratio */
     margin-top: -290px;
+    box-sizing: border-box; /* Ensure margin is included in width calculation */
   }
+
   .none h4 {
     font-size: 17px;
   }
+
   .rotate div {
     font-size: 14px;
     padding: 7px;
   }
+
   .article {
-    margin: none;
+    margin: 0; /* Use 0 instead of 'none' */
   }
+
   .client-info {
     margin-left: -50px;
     margin-top: -100px;
   }
+
   .rosa-team {
     display: none;
   }
+
   .form {
+    display: flex; /* Ensure form items align properly */
     align-items: center;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
   }
+
   .textarea {
     min-width: 300px;
-
-    font-family: poppins;
+    font-family: "Poppins", sans-serif; /* Ensure the font is available */
     max-height: 200px;
     padding: 30px;
     font-size: 10px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
   }
 }
