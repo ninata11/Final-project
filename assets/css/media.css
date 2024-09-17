@@ -24,6 +24,9 @@ body {
     font-size: 25px;
     top: 4%;
   }
+  .slide div img {
+    max-width: 375px;
+  }
 
   .back-section p {
     display: none;
@@ -103,5 +106,16 @@ body {
     padding: 30px;
     font-size: 10px;
     box-sizing: border-box; /* Ensure padding is included in width calculation */
+  }
+  .cards-section {
+    padding: 0;
+  }
+  .cards-parrent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-section {
+    padding: 150px;
   }
 }
